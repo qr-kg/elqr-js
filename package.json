@@ -1,0 +1,64 @@
+{
+  "name": "@qr.kg/elqr-js",
+  "version": "1.0.0",
+  "description": "TypeScript library for building and parsing ELQR payment links — Kyrgyzstan's national instant-payment QR standard.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.ru.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "tsup": "^8",
+    "tsx": "^4",
+    "typescript": "^5"
+  },
+  "keywords": [
+    "elqr",
+    "qr",
+    "payment",
+    "kyrgyzstan",
+    "kg",
+    "tlv",
+    "instant-payment",
+    "pay.payqr.kg"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qr-kg/elqr-js.git"
+  },
+  "homepage": "https://github.com/qr-kg/elqr-js#readme",
+  "bugs": {
+    "url": "https://github.com/qr-kg/elqr-js/issues"
+  },
+  "license": "MIT",
+  "author": "Kirill Bereza"
+}
