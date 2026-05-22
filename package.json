@@ -1,6 +1,6 @@
 {
   "name": "@qr.kg/elqr-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript library for building and parsing ELQR payment links — Kyrgyzstan's national instant-payment QR standard.",
   "type": "module",
   "main": "./dist/index.cjs",
