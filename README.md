@@ -1,7 +1,7 @@
 # elqr
 
 > TypeScript library for building and parsing payment links per
-> the [ELQR specification]([REDACTED-INTERNAL-SPEC]) — Kyrgyzstan's national
+> the ELQR specification — Kyrgyzstan's national
 > instant-payment
 > QR system.
 

@@ -1,7 +1,7 @@
 # elqr
 
 > TypeScript-библиотека для сборки и парсинга платёжных ссылок
-> по [спецификации ELQR]([REDACTED-INTERNAL-SPEC]) — национального QR-стандарта мгновенных
+> по спецификации ELQR — национального QR-стандарта мгновенных
 > платежей Кыргызстана.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)

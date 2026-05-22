@@ -1,8 +1,7 @@
 /**
  * Public types for the ELQR library.
  *
- * Every field links to the corresponding ID in the ELQR spec
- * ([REDACTED-INTERNAL-SPEC]).
+ * Every field links to the corresponding ID in the ELQR spec.
  */
 
 /** Link type — ID "01". `static` (11) lets the payer set the amount; `dynamic` (12) is single-use. */

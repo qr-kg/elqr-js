@@ -2,7 +2,7 @@
  * elqr — TypeScript library for building and parsing payment links per the
  * ELQR specification (Kyrgyzstan's national instant-payment QR system).
  *
- * @see [REDACTED-INTERNAL-SPEC]
+ * @see ELQR specification (internal reference)
  */
 
 export { buildFragment, buildLink, createBuilder } from "./build";
