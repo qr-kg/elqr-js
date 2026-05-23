@@ -11,6 +11,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
+      packages: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,7 +24,18 @@ jobs:
       - run: npm test
       - run: npm run build
 
+      - name: Check if @qr.kg/elqr-js version already exists on npm
+        id: has_qrkg
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if npm view "@qr.kg/elqr-js@$VERSION" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Publish to @qr.kg/elqr-js (canonical)
+        if: steps.has_qrkg.outputs.exists != 'true'
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -33,7 +45,18 @@ jobs:
           jq '.name = "@qr-kg/elqr-js"' package.json > package.json.tmp
           mv package.json.tmp package.json
 
+      - name: Check if @qr-kg/elqr-js version already exists on npm
+        id: has_qr_kg
+        run: |
+          VERSION="$(node -p "require('./package.json').version")"
+          if npm view "@qr-kg/elqr-js@$VERSION" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Publish to @qr-kg/elqr-js (mirror)
+        if: steps.has_qr_kg.outputs.exists != 'true'
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
